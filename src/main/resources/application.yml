@@ -6,9 +6,9 @@ spring:
     username: atilalavor
     password:
   jpa:
-    show-sql: true
+    show-sql: true #ver sql no terminal
     hibernate:
-      ddl-auto: update
+      ddl-auto: update #drop => apaga todo banco quando roda app
     properties:
       hibernate.format_sql: true
 

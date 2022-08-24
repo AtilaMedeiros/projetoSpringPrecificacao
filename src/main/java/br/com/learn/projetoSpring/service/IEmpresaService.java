@@ -1,6 +1,7 @@
 package br.com.learn.projetoSpring.service;
 
 import br.com.learn.projetoSpring.model.Empresa;
+import br.com.learn.projetoSpring.model.Produto;
 import br.com.learn.projetoSpring.validation.EmpresaUpdateValidation;
 import br.com.learn.projetoSpring.validation.EmpresaValidation;
 
@@ -15,8 +16,9 @@ public interface IEmpresaService {
 
     Empresa update(Long id, EmpresaUpdateValidation empresaUpdateValidation);
 
-    List<Empresa> getAll();
+    List<Empresa> getAll(String nome);
 
     void delete(Long id);
 
+    List<Produto> getAllProdutosId(Long id);
 }

@@ -14,6 +14,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_produtos")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//configuramos a inicialização lazy do hibernate quando estamos usando FetchType.LAZY dentro do relacionamento Ex. @ManyToOne
 public class Produto {
 
     @Id
@@ -27,19 +29,17 @@ public class Produto {
     private double precoCompra;
 
     @ManyToOne()
-    @JoinColumn(name = "empresa_id") //, nullable = false
+    @JoinColumn(name = "empresa_id") //indica o local onde vai ser criado o Foreign key
     private Empresa empresa;
 
 }
 
 
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//configuramos a inicialização lazy do hibernate pois estamos usando FetchType.LAZY
+
 
 /*  mappedBy => dentro da tabela produtos, qual o campo que corresponde a empresa? foi informado quando usamos List var
     FetchType.LAZY => somente carrega tudo se tiver um endpoit proprio.
-    @OneToMany => uma empresa tem muitos produtos
     CascadeType.ALL =>  alteração feita em Produto vai REPERCUTIR na tabela Empresa. Se excluir um produto excluiria tambem a empresa associada
-    @JoinColumn => A coluna empresa vai aparecer dentro de produto
-    @JsonIgnore ==> configuramos isso quando usamos o FetchType.LAZY
+    @JoinColumn => A coluna empresa vai aparecer dentro de produto. server para indicar o lado da foreign key
+    @JsonIgnore ==> esconte o campo no retorno do json no postman
 */

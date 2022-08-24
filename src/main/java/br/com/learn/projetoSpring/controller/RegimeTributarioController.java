@@ -7,6 +7,7 @@ import br.com.learn.projetoSpring.validation.RegimeTributarioValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class RegimeTributarioController {
     }
 
     @PostMapping
-    public RegimeTributario create(@RequestBody RegimeTributarioValidation regimeTributarioValidation){
+    public RegimeTributario create(@Valid @RequestBody RegimeTributarioValidation regimeTributarioValidation){
         return regimeTributarioService.create(regimeTributarioValidation);
     }
 

@@ -19,6 +19,9 @@ public class RegimeTributarioValidation {
     private String nome;
 
 
+    //@NotNull(message = "Preencha o campo corretamente.")
+    //@Positive(message = "${validatedValue}' precisa ser positivo.")
+    //@DecimalMin(value = "150", message = "'${validatedValue}' precisa ser no mínimo {value}.")
     private double taxa;
 
 

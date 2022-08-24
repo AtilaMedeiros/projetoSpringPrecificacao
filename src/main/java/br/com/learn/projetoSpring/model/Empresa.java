@@ -31,21 +31,9 @@ public class Empresa {
     @JoinColumn(name = "regime_id", nullable = false)
     private RegimeTributario regime;
 
-    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL ) //fetch = FetchType.LAZY
     @JsonIgnore
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL ) //fetch = FetchType.LAZY
     private List<Produto> produtos = new ArrayList<>();
 
 }
 
-
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//configuramos a inicialização lazy do hibernate pois estamos usando FetchType.LAZY
-
-/*
-\    mappedBy =>  O campo que você informa o atributo dono do relacionamento. Este elemento é especificado apenas no lado inverso (não proprietário) da associação.
-    FetchType.LAZY => somente carrega tudo se tiver um endpoit proprio.
-    @OneToMany => uma empresa tem muitos produtos
-    CascadeType.ALL => alteração feita em Empresa vai REPERCUTIR em produtos. se excluir a empresa, vai excluir os produtos associado a ela
-    @JoinColumn => A coluna produtos vai aparecer dentro de Empresa. CUIDADO, não pode usar quando for uma list
-    @JsonIgnore ==> configuramos isso quando usamos o FetchType.LAZY / não é obrigado enviar no json
-*/
