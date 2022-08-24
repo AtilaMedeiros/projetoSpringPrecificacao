@@ -32,6 +32,7 @@ public class Empresa {
     private RegimeTributario regime;
 
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL ) //fetch = FetchType.LAZY
+    @JsonIgnore
     private List<Produto> produtos = new ArrayList<>();
 
 }

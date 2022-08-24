@@ -27,6 +27,7 @@ public class EmpresaServiceImpl implements IEmpresaService {
         Empresa empresa = new Empresa();
         empresa.setNome(empresaValidation.getNome());
 
+        //pelo id informado no json, o lado direito vai buscar o resto dos dados do regime tributario
         RegimeTributario regimeTributarioId = regimeTributarioRepository.findById(empresaValidation.getRegime_id()).get();
         empresa.setRegime(regimeTributarioId);
 

@@ -24,11 +24,11 @@ public class ProtudoServiceImpl implements IProdutoService {
     @Override
     public Produto create(ProdutoValidation produtoValidation) {
         Produto produto = new Produto();
-        //Empresa empresaId = empresaRepository.findById(produtoValidation.getEmpresa_id()).get();
-
         produto.setNome(produtoValidation.getNome());
         produto.setPrecoCompra(produto.getPrecoCompra());
-        //produto.setEmpresa(empresaId);
+
+        Empresa empresaId = empresaRepository.findById(produtoValidation.getEmpresa_id()).get();
+        produto.setEmpresa(empresaId);
 
         return produtoRepository.save(produto);
     }
