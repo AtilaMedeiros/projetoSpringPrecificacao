@@ -1,13 +1,12 @@
 package br.com.learn.projetoSpring.controller;
 
-import br.com.learn.projetoSpring.model.Empresa;
 import br.com.learn.projetoSpring.model.Produto;
-import br.com.learn.projetoSpring.repository.ProdutoRepository;
-import br.com.learn.projetoSpring.validation.EmpresaValidation;
 import br.com.learn.projetoSpring.validation.ProdutoValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import br.com.learn.projetoSpring.service.impl.ProtudoServiceImpl;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -21,17 +21,21 @@ public class EmpresaServiceImpl implements IEmpresaService {
 
     @Autowired
     private EmpresaRepository empresaRepository;
-
     @Autowired
     private RegimeTributarioRepository regimeTributarioRepository;
-
     @Autowired
     private ProdutoRepository produtoRepository;
+    @Autowired
+    private Empresa empresa;
+    @Autowired
+    private List<Produto> produtos;
+    @Autowired
+    private List<Produto> produtosEmpresa;
 
 
     @Override
     public Empresa create(EmpresaValidation empresaValidation) {
-        Empresa empresa = new Empresa();
+        //Empresa empresa = new Empresa();
         empresa.setNome(empresaValidation.getNome());
 
         //pelo id informado no json, o lado direito vai buscar o resto dos dados do regime tributario
@@ -69,8 +73,10 @@ public class EmpresaServiceImpl implements IEmpresaService {
 
     @Override
     public List<Produto> getAllProdutosId(Long empresa_id) {
-        List<Produto> produtos = produtoRepository.findAll();
-        List<Produto> produtosEmpresa = new ArrayList<>();
+        //List<Produto>
+        produtos = produtoRepository.findAll();
+        //List<Produto>
+        produtosEmpresa = new ArrayList<>();
 
         for (Produto produto : produtos) {
             Long id = produto.getEmpresa().getId();

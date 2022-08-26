@@ -2,10 +2,12 @@ package br.com.learn.projetoSpring.controller;
 
 import br.com.learn.projetoSpring.model.RegimeTributario;
 import br.com.learn.projetoSpring.service.impl.RegimeTributarioServiceImpl;
-import br.com.learn.projetoSpring.validation.RegimeTributarioUpdateValidation;
 import br.com.learn.projetoSpring.validation.RegimeTributarioValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import javax.validation.Valid;
 import java.util.List;
