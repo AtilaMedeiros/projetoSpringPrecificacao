@@ -1,5 +1,7 @@
 package br.com.learn.projetoSpring.service.impl;
 
+import br.com.learn.projetoSpring.exception.NameEmpresaNullException;
+import br.com.learn.projetoSpring.exception.RegimeEmpresaNullException;
 import br.com.learn.projetoSpring.model.Empresa;
 import br.com.learn.projetoSpring.model.Produto;
 import br.com.learn.projetoSpring.model.RegimeTributario;
@@ -35,6 +37,15 @@ public class EmpresaServiceImpl implements IEmpresaService {
 
     @Override
     public Empresa create(EmpresaValidation empresaValidation) {
+
+        if (empresaValidation.getNome() == null  ){
+            throw new NameEmpresaNullException();
+        }
+
+        if (empresaValidation.getRegime_id() == null) {
+            throw new RegimeEmpresaNullException();
+        }
+
         //Empresa empresa = new Empresa();
         empresa.setNome(empresaValidation.getNome());
 

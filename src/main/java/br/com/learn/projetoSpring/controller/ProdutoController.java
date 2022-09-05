@@ -28,7 +28,7 @@ public class ProdutoController {
     //@RequestBody => postman (client) vai enviar um body via json
     //@Valid, ativa as regras de validacao do ProdutoValidation como tambanho do campo etc
     @PostMapping
-    public Produto create(@Valid @RequestBody ProdutoValidation produtoValidation) {
+    public Produto create( @RequestBody ProdutoValidation produtoValidation) {
         return produtoServiceImpl.create(produtoValidation);
     }
 

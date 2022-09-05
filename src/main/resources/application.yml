@@ -8,9 +8,12 @@ spring:
   jpa:
     show-sql: true #ver sql no terminal
     hibernate:
-      ddl-auto: update #drop => apaga todo banco quando roda app
+      ddl-auto: update #drop #create => apaga todo banco quando roda app
     properties:
       hibernate.format_sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
 
 logging:
   level:

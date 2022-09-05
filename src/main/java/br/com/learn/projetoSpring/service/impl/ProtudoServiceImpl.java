@@ -1,5 +1,8 @@
 package br.com.learn.projetoSpring.service.impl;
 
+import br.com.learn.projetoSpring.exception.NameEmpresaNullException;
+import br.com.learn.projetoSpring.exception.NameProdutoNullException;
+import br.com.learn.projetoSpring.exception.ProdutoPrecoException;
 import br.com.learn.projetoSpring.model.Empresa;
 import br.com.learn.projetoSpring.model.Produto;
 import br.com.learn.projetoSpring.repository.EmpresaRepository;
@@ -23,6 +26,16 @@ public class ProtudoServiceImpl implements IProdutoService {
 
     @Override
     public Produto create(ProdutoValidation produtoValidation) {
+
+        if (produtoValidation.getNome() == null){
+            throw new NameProdutoNullException();
+        }
+
+        if (produtoValidation.getPrecoCompra() < 0){
+            throw new ProdutoPrecoException();
+
+        }
+
         Produto produto = new Produto();
         produto.setNome(produtoValidation.getNome());
         produto.setPrecoCompra(produto.getPrecoCompra());

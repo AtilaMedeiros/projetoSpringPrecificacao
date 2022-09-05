@@ -31,7 +31,7 @@ public class EmpresaController {
     //@RequestBody vamos passar no corpo da requisiça o novo cadastro como json
     //@Valid ativa as validações. Ex. EmpresaValidation
     @PostMapping
-    public Empresa create(@Valid @RequestBody EmpresaValidation empresaValidation) {
+    public Empresa create( @RequestBody EmpresaValidation empresaValidation) {
         return empresaServiceImpl.create(empresaValidation);
     }
 
