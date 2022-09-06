@@ -15,11 +15,28 @@ spring:
     pathmatch:
       matching-strategy: ant-path-matcher
 
+  boot:
+    admin:
+      client:
+        url: "http://127.0.0.1:8080"
+
+
 logging:
   level:
     org:
       hibernate:
         type: trace
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
 
 
 
